@@ -25,17 +25,17 @@ def api_utils_anonym_api():
 
 @pytest.fixture(scope="session", autouse=False)
 def api_utils_super_admin_movie(api_utils_anonym_auth):
-    email = os.environ["SUPER_ADMIN_EMAIL"]
-    password = os.environ["SUPER_ADMIN_PASSWORD"]
+    email = "mailsuu@mail.ru"#os.environ["SUPER_ADMIN_EMAIL"]
+    password = "dddooolll1112"#os.environ["SUPER_ADMIN_PASSWORD"]
 
     auth_service = AuthService(api_utils=api_utils_anonym_auth)
     login_user = LoginUserDto(email=email, password=password)
-    login_response = auth_service.login_user(login_user)
+    #login_response = auth_service.login_user(login_user)
 
-    api_utils_super_admin = ApiUtils(url=MOVIE_API_URL,
-                                     headers={'Authorization': f"Bearer {login_response.access_token}"})
+    #api_utils_super_admin = ApiUtils(url=MOVIE_API_URL,
+    #                                headers={'Authorization': f"Bearer {login_response.access_token}"})
 
-    yield api_utils_super_admin
+    #yield api_utils_super_admin
 
 
 @pytest.fixture(scope="session", autouse=False)
